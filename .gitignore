@@ -9,8 +9,4 @@ Scripts/*
 !Scripts/UMARider.cs
 !Prefabs/
 Prefabs/*
-!Prefabs/Characters/
-Prefabs/Characters/*
-!Prefabs/Characters/Male/
-Prefabs/Characters/Male/*
-!Prefabs/Characters/Male/Rider AC Combat (Holsters) with UMA.prefab
+!Prefabs/Rider AC Combat (Holsters) with UMA.prefab
