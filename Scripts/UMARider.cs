@@ -12,20 +12,20 @@ public class UMARider : MonoBehaviour
     public GameObject rightHolderWeapon;
     public GameObject leftHolderWeapon;
 
-    public Vector3 equipPointRightOffset = Vector3.zero;
-    public Vector3 equipPointRightRotation = Vector3.zero;
+    public Vector3 equipPointRightOffset = new Vector3(0.00980000012f, 0.0573000014f, -0.00779999979f);
+    public Vector3 equipPointRightRotation = new Vector3(-65.5419998f, -65.0139999f, 60.3079987f);
 
-    public Vector3 equipPointLeftOffset = Vector3.zero;
-    public Vector3 equipPointLeftRotation = Vector3.zero;
+    public Vector3 equipPointLeftOffset = new Vector3(0.0299999993f, 0.0110999998f, -0.0274999999f);
+    public Vector3 equipPointLeftRotation = new Vector3(-105.530998f, -44.1660194f, 43.1020088f);
 
-    public Vector3 holderBackOffset = Vector3.zero;
-    public Vector3 holderBackRotation = Vector3.zero;
+    public Vector3 holderBackOffset = new Vector3(-0.0338084996f, -0.046600949f, -0.0858304873f);
+    public Vector3 holderBackRotation = new Vector3(120.706001f, 115.587997f, 117.374001f);
 
-    public Vector3 holderRightOffset = Vector3.zero;
-    public Vector3 holderRightRotation = Vector3.zero;
+    public Vector3 holderRightOffset = new Vector3(0.137999997f, -0.0719999969f, 0.125f);
+    public Vector3 holderRightRotation = new Vector3(10.9829998f, -129.022995f, 4.42299986f);
 
-    public Vector3 holderLeftOffset = Vector3.zero;
-    public Vector3 holderLeftRotation = Vector3.zero;
+    public Vector3 holderLeftOffset = new Vector3(0.141000003f, 0.103f, 0.0850000009f);
+    public Vector3 holderLeftRotation = new Vector3(-10.3769999f, -121.528f, -17.7639999f);
 
     void Start () {
 
@@ -124,6 +124,7 @@ public class UMARider : MonoBehaviour
         }
 
         weaponManager.holsters[0].Slots.Add(holderLeft.transform);
+        weaponManager.holsters[0].Slots.Add(holderBack.transform); // TODO: need an additional back holster for left
         weaponManager.holsters[1].Slots.Add(holderBack.transform);
         weaponManager.holsters[2].Slots.Add(holderRight.transform);
 
