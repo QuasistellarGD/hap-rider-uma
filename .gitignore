@@ -1,7 +1,16 @@
-# Ignore everything
+# Blocklist files/folders in same directory as the .gitignore file
 *
 
-# But not these files...
+# Includelist some files
 !.gitignore
+!README.md
+!Scripts/
+Scripts/*
 !Scripts/UMARider.cs
+!Prefabs/
+Prefabs/*
+!Prefabs/Characters/
+Prefabs/Characters/*
+!Prefabs/Characters/Male/
+Prefabs/Characters/Male/*
 !Prefabs/Characters/Male/Rider AC Combat (Holsters) with UMA.prefab
