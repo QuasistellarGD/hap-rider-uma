@@ -1,0 +1,7 @@
+# Ignore everything
+*
+
+# But not these files...
+!.gitignore
+!Scripts/UMARider.cs
+!Prefabs/Characters/Male/Rider AC Combat (Holsters) with UMA.prefab
