@@ -14,23 +14,23 @@
 https://www.youtube.com/watch?v=mlYu0YQojHA
 
 2. Change the Animation Controller on your new Rider to the "AC Human v4 Rider". There's 3 places to do this:
-  1. Animator component - Controller field
-  2. Dynamic Character Avatar component - Default Animation Controller field (Under Race Animation Controllers)
-  3. Dynamic Character Avatar component - Animation Controller field (Under Advanced Options)
+  - Animator component - Controller field
+  - Dynamic Character Avatar component - Default Animation Controller field (Under Race Animation Controllers)
+  - Dynamic Character Avatar component - Animation Controller field (Under Advanced Options)
 
 3. Add the UMARider script as Component to your Rider.
 
 4. Add the Created event.
-  1. Open Character Events on the Dynamic Character Avatar component.
-  2. Click + under the Character Created list.
-  3. Drag the UMARider component into the new event's Object field.
-  4. Under the event's Function dropdown, select UMARider.UpdateRiderHandBones().
+  - Open Character Events on the Dynamic Character Avatar component.
+  - Click + under the Character Created list.
+  - Drag the UMARider component into the new event's Object field.
+  - Under the event's Function dropdown, select UMARider.UpdateRiderHandBones().
 
 5. Remove the Weapon Manager compoent's holster slots.
-  1. Under the Weapon Manager component -> Holsters tab, make sure 'Use Holsters' is selected.
-  2. In the Holster list you should see a list containing Left, Right and Back holsters. Select each one and remove their Slots as follows:
-  3. Select a Holster. Its properties will appear just below the Holster's list that contains a Slots list.
-  4. Remove the default Slots from this list and repeat for all Holsters.
+  - Under the Weapon Manager component -> Holsters tab, make sure 'Use Holsters' is selected.
+  - In the Holster list you should see a list containing Left, Right and Back holsters. Select each one and remove their Slots as follows:
+  - Select a Holster. Its properties will appear just below the Holster's list that contains a Slots list.
+  - Remove the default Slots from this list and repeat for all Holsters.
 
 ## Known Issues:
 
