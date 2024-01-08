@@ -34,6 +34,6 @@ https://www.youtube.com/watch?v=mlYu0YQojHA
 
 ## Known Issues:
 
-1. The Aiming is off.
+1. The Aiming is off. This could help: [Fixing Bow Aim At Runtime Offset IK - Discord](https://discord.com/channels/640979038449696770/664963793876418600/1078374863653322782)
 2. The UMARider has some default offsets and rotations for the equip points and holsters. They need to be tweeked.
 3. The UMARider script should allow you to set weapons that your UMA Rider should start with. These are not working at the moment.
