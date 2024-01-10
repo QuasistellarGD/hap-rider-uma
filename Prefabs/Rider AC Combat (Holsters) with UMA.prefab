@@ -36755,7 +36755,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5221220193389221518}
         m_TargetAssemblyTypeName: UMARider, Assembly-CSharp
-        m_MethodName: UpdateRiderHandBones
+        m_MethodName: OnCharacterCreated
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

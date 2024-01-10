@@ -5,9 +5,14 @@ using MalbersAnimations;
 using MalbersAnimations.HAP;
 using MalbersAnimations.Weapons;
 using MalbersAnimations.Utilities;
+using UMA;
+using UMA.CharacterSystem;
 
+[RequireComponent(typeof(DynamicCharacterAvatar))]
 public class UMARider : MonoBehaviour
 {
+    private DynamicCharacterAvatar characterAvatar;
+
     public GameObject backHolderWeapon;
     public GameObject rightHolderWeapon;
     public GameObject leftHolderWeapon;
@@ -28,15 +33,32 @@ public class UMARider : MonoBehaviour
     public Vector3 holderLeftRotation = new Vector3(-10.3769999f, -121.528f, -17.7639999f);
 
     void Start () {
-
+        characterAvatar = GetComponent<DynamicCharacterAvatar>();
     }
 
     void Update () {
         
     }
 
+    private void SetCharacterRecipe(string slotToChange, UMATextRecipe recipe)
+    {
+        if (recipe != null)
+        {
+            //Debug.Log("Set " + slotToChange + " to " + recipe.DisplayValue);
+            characterAvatar.SetSlot(recipe);
+        }
+        else
+        {
+            //Debug.Log("Clear " + slotToChange);
+            characterAvatar.ClearSlot(slotToChange);
+            characterAvatar.ReapplyWardrobeCollections();
+        }
+
+        characterAvatar.BuildCharacter(true);
+    }
+
     // should be called on UMA created event
-    public void UpdateRiderHandBones () {
+    public void OnCharacterCreated () {
 
         MWeaponManager weaponManager = gameObject.GetComponent<MWeaponManager>();
         MInventory inventory = gameObject.GetComponent<MInventory>();
