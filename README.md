@@ -2,13 +2,30 @@
 
 ## Usage - Quick How to guide
 
-### Using the Prefab:
+### Quick Setup:
 
-1. Clone this repo into your Assets folder.
+1. Clone this repo into your Assets folder. All of its assets are now within HAPRiderUMA folder.
 2. After Unity re-compiles, it should display a Debug message complaining about UMARider.cs that is trying to use an inaccessible set accessor. You will need to open 'Assets\Malbers Animations\Common\Scripts\Riding System\Rider\MRider.cs' and scroll to line 264 and 266, then remove private from the set accessors on both lines. Save and have Unity recompile.
-3. Pull in the Prefab from this repo into a scene and it should work.
+3. Pull in the Prefabs from this repo into a scene (Steve Inventory will need to be added to the InventorySystemDemo scene).
 
-### Creating your own prefab:
+### Creating UMA Inventory Items (For Malbers Inventory System):
+
+1. To create a new UMA Clothing Item use the Create menu:
+  - Assets -> Create -> Malbers Inventory -> New UMA Clothing Item
+2. On the new Item's General Tab:
+  - Fill in the Item's details
+  - Set an UMA Text Recipe
+  - Tick Equippable
+3. On the Item's Reactions Tab:
+  - Change the Equip Reaction to the "UMA/Equip Clothing Item" reaction
+  - Change the Unequip Reaction to the "UMA/Unequip Clothing Item" reaction
+4. You will also need to create a Prefab for the Item:
+  - Copy an existing Item in the InventorySystemDemo scene
+  - Change it's Inventory Item property to your new UMA Clothing Item under the Inventory Item Component.
+  - Turn it into a Prefab
+  - Set this new Prefab as your UMA Clothing Item's In World Prefab.
+
+### Creating your own Rider prefab:
 
 1. First follow this tutorial to get HAP and UMA working together.
 https://www.youtube.com/watch?v=mlYu0YQojHA
