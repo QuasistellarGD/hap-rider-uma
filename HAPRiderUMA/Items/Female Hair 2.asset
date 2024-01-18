@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e7768a796a0de4ea324d6e201ca230, type: 3}
+  m_Name: Female Hair 2
+  m_EditorClassIdentifier: 
+  ID: 0
+  type: {fileID: 11400000, guid: 6b26e94ff3a96b1469b0c38fa8e03c19, type: 2}
+  icon: {fileID: 21300000, guid: 1daa9b20b431b164ca35fc614c9fca1d, type: 3}
+  itemName: Female Hair 2
+  description: ' Hair 2'
+  subtitleText: Hair 2
+  SellValueOfItem: 100
+  Stackable: 0
+  maxStacks: 99
+  rarityOfItem: 0
+  inWorldPrefab: {fileID: 8881869595417596589, guid: 52c6ee5394de9b449b1fb1a5a1119484,
+    type: 3}
+  Equippable: 1
+  Usable: 0
+  Droppable: 1
+  Discardable: 1
+  NotSellable: 0
+  OnItemUsed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnItemEquipped:
+    m_PersistentCalls:
+      m_Calls: []
+  OnItemUnEquipped:
+    m_PersistentCalls:
+      m_Calls: []
+  OnItemDropped:
+    m_PersistentCalls:
+      m_Calls: []
+  OnItemRemoved:
+    m_PersistentCalls:
+      m_Calls: []
+  UseReaction:
+    name: Use
+    reaction:
+      rid: 9139710551069032532
+  EquipReaction:
+    name: Equip
+    reaction:
+      rid: 9139710593230700597
+  UnequipReaction:
+    name: Unequip
+    reaction:
+      rid: 9139710593230700596
+  DropReaction:
+    name: Drop
+    reaction:
+      rid: 9139710551069032535
+  RemoveReaction:
+    name: Remove
+    reaction:
+      rid: 9139710551069032536
+  Editor_Tabs1: 0
+  textRecipe: {fileID: 11400000, guid: 967f84b71a1548d4580a76c279ec5389, type: 2}
+  wardrobeSlot: Hair
+  inventorySlot: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: 9139710551069032532
+      type: {class: UseItemReaction, ns: MalbersAnimations.InventorySystem, asm: MalbersAnimations}
+      data:
+        Active: 1
+        delay: 0
+    - rid: 9139710551069032535
+      type: {class: DropItemReaction, ns: MalbersAnimations.InventorySystem, asm: MalbersAnimations}
+      data:
+        Active: 1
+        delay: 0
+    - rid: 9139710551069032536
+      type: {class: RemoveItemReaction, ns: MalbersAnimations.InventorySystem, asm: MalbersAnimations}
+      data:
+        Active: 1
+        delay: 0
+    - rid: 9139710593230700596
+      type: {class: UnequipClothingItemReaction, ns: , asm: Assembly-CSharp}
+      data:
+        Active: 1
+        delay: 0
+    - rid: 9139710593230700597
+      type: {class: EquipClothingItemReaction, ns: , asm: Assembly-CSharp}
+      data:
+        Active: 1
+        delay: 0
