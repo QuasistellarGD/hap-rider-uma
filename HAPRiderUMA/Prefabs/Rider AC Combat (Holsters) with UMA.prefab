@@ -306,14 +306,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1949155925493278107}
-  parent: 5
+  parent: 19
   LocalPos:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   LocalRot:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   PosOffset:
     UseConstant: 1
@@ -321,7 +321,7 @@ MonoBehaviour:
     Variable: {fileID: 0}
   RotOffset:
     UseConstant: 1
-    ConstantValue: {x: 0, y: 0, z: 0}
+    ConstantValue: {x: 0, y: 0, z: 90}
     Variable: {fileID: 0}
 --- !u!1 &611824374618998572
 GameObject:
@@ -997,9 +997,10 @@ MonoBehaviour:
   Pinned: {fileID: 0}
   debug: 0
   SelectedState: 0
+  showResponse: 1
 --- !u!114 &6634876677198962639
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1023,7 +1024,7 @@ MonoBehaviour:
   showCompare: 0
 --- !u!114 &6349874237126448008
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -1112,6 +1113,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1286867ad3c4cdd4baacac3373aff92c, type: 2}
   ignoreStates:
   - {fileID: 11400000, guid: adfa24f62d6db4d40a1d837f4ec1a6e9, type: 2}
+  KeepCurrentTarget:
+    UseConstant: 1
+    ConstantValue: 1
+    Variable: {fileID: 0}
   Layer:
     UseConstant: 1
     ConstantValue:
@@ -1166,6 +1171,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 87cd5a9f71d66f84493bd68df8277f21, type: 2}
   ignoreStates:
   - {fileID: 11400000, guid: adfa24f62d6db4d40a1d837f4ec1a6e9, type: 2}
+  KeepCurrentTarget:
+    UseConstant: 1
+    ConstantValue: 1
+    Variable: {fileID: 0}
   Layer:
     UseConstant: 1
     ConstantValue:
@@ -1219,6 +1228,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: dc411047be38d924fbfc67128f6957f2, type: 2}
   ignoreStates:
   - {fileID: 11400000, guid: adfa24f62d6db4d40a1d837f4ec1a6e9, type: 2}
+  KeepCurrentTarget:
+    UseConstant: 1
+    ConstantValue: 1
+    Variable: {fileID: 0}
   Layer:
     UseConstant: 1
     ConstantValue:
@@ -1931,7 +1944,6 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -2227,19 +2239,19 @@ MonoBehaviour:
   parent: 7
   LocalPos:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   LocalRot:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   PosOffset:
     UseConstant: 1
-    ConstantValue: {x: 0, y: 0, z: 0}
+    ConstantValue: {x: 0, y: -0.21, z: 0}
     Variable: {fileID: 0}
   RotOffset:
     UseConstant: 1
-    ConstantValue: {x: 0, y: 0, z: 0}
+    ConstantValue: {x: 0, y: 125.84, z: 31.650002}
     Variable: {fileID: 0}
 --- !u!114 &2468402127348279111
 MonoBehaviour:
@@ -2746,19 +2758,19 @@ MonoBehaviour:
   parent: 54
   LocalPos:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   LocalRot:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   PosOffset:
     UseConstant: 1
-    ConstantValue: {x: 0, y: 0, z: 0}
+    ConstantValue: {x: -0.2, y: -0.15, z: -0.09}
     Variable: {fileID: 0}
   RotOffset:
     UseConstant: 1
-    ConstantValue: {x: 0, y: 0, z: 0}
+    ConstantValue: {x: 35, y: -95, z: -90}
     Variable: {fileID: 0}
 --- !u!114 &1296369651258065614
 MonoBehaviour:
@@ -2932,49 +2944,54 @@ MonoBehaviour:
       UseConstant: 1
       ConstantValue: 0
       Variable: {fileID: 0}
+    states: []
     FinishTime: 0
     Sequence:
     - Activation:
         minValue: 0
         maxValue: 0
+      ActivationTime: 0.5
       PreviewsAbility: 0
       Ability: 1
       Branch: 0
-      Used: 0
       Finisher: 0
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0.4
         maxValue: 0.85
+      ActivationTime: 0.5
       PreviewsAbility: 1
       Ability: 2
       Branch: 0
-      Used: 0
       Finisher: 0
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0.4
         maxValue: 1
+      ActivationTime: 0.5
       PreviewsAbility: 2
       Ability: 3
       Branch: 0
-      Used: 0
       Finisher: 1
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0.4
         maxValue: 1
+      ActivationTime: 0.5
       PreviewsAbility: 2
       Ability: 4
       Branch: 1
-      Used: 0
       Finisher: 1
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
@@ -3028,126 +3045,138 @@ MonoBehaviour:
       UseConstant: 1
       ConstantValue: 0
       Variable: {fileID: 0}
+    states: []
     FinishTime: 0
     Sequence:
     - Activation:
         minValue: 0
         maxValue: 0
+      ActivationTime: 0.5
       PreviewsAbility: 0
       Ability: 1
       Branch: 0
-      Used: 0
       Finisher: 0
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0.4
         maxValue: 1
+      ActivationTime: 0.5
       PreviewsAbility: 1
       Ability: 2
       Branch: 0
-      Used: 0
       Finisher: 0
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0.5
         maxValue: 1
+      ActivationTime: 0.5
       PreviewsAbility: 2
       Ability: 5
       Branch: 0
-      Used: 0
       Finisher: 1
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0.5
         maxValue: 1
+      ActivationTime: 0.5
       PreviewsAbility: 2
       Ability: 6
       Branch: 1
-      Used: 0
       Finisher: 1
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0.5
         maxValue: 1
+      ActivationTime: 0.5
       PreviewsAbility: 3
       Ability: 6
       Branch: 1
-      Used: 0
       Finisher: 1
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0
         maxValue: 0
+      ActivationTime: 0.5
       PreviewsAbility: 0
       Ability: 2
       Branch: 1
-      Used: 0
       Finisher: 0
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0.4
         maxValue: 1
+      ActivationTime: 0.5
       PreviewsAbility: 2
       Ability: 3
       Branch: 1
-      Used: 0
       Finisher: 0
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0.4
         maxValue: 1
+      ActivationTime: 0.5
       PreviewsAbility: 3
       Ability: 5
       Branch: 1
-      Used: 0
       Finisher: 1
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0.4
         maxValue: 1
+      ActivationTime: 0.5
       PreviewsAbility: 3
       Ability: 4
       Branch: 0
-      Used: 0
       Finisher: 0
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0.4
         maxValue: 1
+      ActivationTime: 0.5
       PreviewsAbility: 2
       Ability: 4
       Branch: 0
-      Used: 0
       Finisher: 0
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0.4
         maxValue: 1
+      ActivationTime: 0.5
       PreviewsAbility: 4
       Ability: 6
       Branch: 0
-      Used: 0
       Finisher: 1
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
@@ -3201,49 +3230,54 @@ MonoBehaviour:
       UseConstant: 1
       ConstantValue: 0
       Variable: {fileID: 0}
+    states: []
     FinishTime: 0
     Sequence:
     - Activation:
         minValue: 0
         maxValue: 0
+      ActivationTime: 0.5
       PreviewsAbility: 0
       Ability: 2
       Branch: 0
-      Used: 0
       Finisher: 0
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0.6
         maxValue: 1
+      ActivationTime: 0.5
       PreviewsAbility: 2
       Ability: 1
       Branch: 0
-      Used: 0
       Finisher: 0
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0.6
         maxValue: 1
+      ActivationTime: 0.5
       PreviewsAbility: 1
       Ability: 3
       Branch: 0
-      Used: 0
       Finisher: 0
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0.6
         maxValue: 1
+      ActivationTime: 0.5
       PreviewsAbility: 3
       Ability: 4
       Branch: 0
-      Used: 0
       Finisher: 1
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
@@ -3297,38 +3331,42 @@ MonoBehaviour:
       UseConstant: 1
       ConstantValue: 0
       Variable: {fileID: 0}
+    states: []
     FinishTime: 0
     Sequence:
     - Activation:
         minValue: 0
         maxValue: 0
+      ActivationTime: 0.5
       PreviewsAbility: 0
       Ability: 3
       Branch: 0
-      Used: 0
       Finisher: 0
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0.6
         maxValue: 1
+      ActivationTime: 0.5
       PreviewsAbility: 3
       Ability: 2
       Branch: 0
-      Used: 0
       Finisher: 0
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
     - Activation:
         minValue: 0.6
         maxValue: 1
+      ActivationTime: 0.5
       PreviewsAbility: 2
       Ability: 1
       Branch: 0
-      Used: 0
       Finisher: 1
+      Restarter: 0
       OnSequencePlay:
         m_PersistentCalls:
           m_Calls: []
@@ -3510,8 +3548,6 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -3545,14 +3581,13 @@ Animation:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2474361859587116372}
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: fc1c3b7f044ae5e4db36ba8e22cb4e4f, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: fc1c3b7f044ae5e4db36ba8e22cb4e4f, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
-  m_UpdateMode: 0
   m_CullingType: 0
 --- !u!1 &2481181600504585421
 GameObject:
@@ -8340,8 +8375,6 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -13234,8 +13267,6 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -13952,7 +13983,6 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8df1df53c4baa7a4b9f136e2b96525fd, type: 3}
-  m_Resource: {fileID: 8300000, guid: 8df1df53c4baa7a4b9f136e2b96525fd, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.854
   m_Pitch: 0.77
@@ -14448,6 +14478,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 4294967295
     Variable: {fileID: 11400000, guid: f489db1856e43dc47b175dd125135bdc, type: 2}
+  AttackDirection: 0
   triggerInteraction: 1
   owner: {fileID: 6915115654562247252}
   m_HitEffect:
@@ -14672,14 +14703,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1949155925493278107}
-  parent: 16
+  parent: 18
   LocalPos:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   LocalRot:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   PosOffset:
     UseConstant: 1
@@ -15160,14 +15191,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1949155925493278107}
-  parent: 6
+  parent: 20
   LocalPos:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   LocalRot:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   PosOffset:
     UseConstant: 1
@@ -15175,7 +15206,7 @@ MonoBehaviour:
     Variable: {fileID: 0}
   RotOffset:
     UseConstant: 1
-    ConstantValue: {x: 0, y: 0, z: 0}
+    ConstantValue: {x: 0, y: 0, z: 90}
     Variable: {fileID: 0}
 --- !u!1 &4085507068247836422
 GameObject:
@@ -15295,7 +15326,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4260754201159230303}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0071692076, y: -0.06974572, z: 0.0077642472, w: 0.9975088}
+  m_LocalRotation: {x: -0.0071692117, y: -0.06974572, z: 0.0077642514, w: 0.9975088}
   m_LocalPosition: {x: -0.031541508, y: -0.000000026077032, z: -0.00000005401671}
   m_LocalScale: {x: 1.0000005, y: 1.0000002, z: 1.0000004}
   m_ConstrainProportionsScale: 0
@@ -15397,7 +15428,6 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -15541,8 +15571,6 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -16225,6 +16253,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 4294967295
     Variable: {fileID: 11400000, guid: f489db1856e43dc47b175dd125135bdc, type: 2}
+  AttackDirection: 0
   triggerInteraction: 1
   owner: {fileID: 6915115654562247252}
   m_HitEffect:
@@ -16449,14 +16478,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1949155925493278107}
-  parent: 15
+  parent: 17
   LocalPos:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   LocalRot:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   PosOffset:
     UseConstant: 1
@@ -17132,8 +17161,6 @@ TrailRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -17613,8 +17640,6 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -18118,7 +18143,6 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2af30537405d5734b92a67c8f83a17be, type: 3}
-  m_Resource: {fileID: 8300000, guid: 2af30537405d5734b92a67c8f83a17be, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -18569,8 +18593,6 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 3
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -18709,8 +18731,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.00003361702, y: 0.78505033, z: -0.030376904}
-    m_Extent: {x: 0.79332757, y: 0.8714743, z: 0.18665054}
+    m_Center: {x: -0.00003349781, y: 0.78505033, z: -0.030376904}
+    m_Extent: {x: 0.7933278, y: 0.8714743, z: 0.18665054}
   m_DirtyAABB: 0
 --- !u!1 &6575709299043405943
 GameObject:
@@ -19618,6 +19640,8 @@ MonoBehaviour:
     AdvancedBool: 0
     InvertBool: 0
     multiplier: 1
+  ShowEvents: 1
+  SelectedEvent: 0
 --- !u!114 &4449236511003901670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19876,7 +19900,6 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 0.854
   m_Pitch: 0.77
@@ -20012,8 +20035,6 @@ TrailRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -20140,7 +20161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7227768590030030611
 Transform:
   m_ObjectHideFlags: 0
@@ -20149,7 +20170,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6915115654562247252}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.9357959, y: 0, z: 1.2976245}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20162,7 +20183,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1949155925493278107
 Animator:
-  serializedVersion: 7
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -20176,7 +20197,6 @@ Animator:
   m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_AnimatePhysics: 1
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -22610,6 +22630,7 @@ MonoBehaviour:
       OnInputFloat:
         m_PersistentCalls:
           m_Calls: []
+    selectedIndex: 0
   - name:
       UseConstant: 1
       ConstantValue: Weapons External
@@ -23863,6 +23884,7 @@ MonoBehaviour:
       OnInputFloat:
         m_PersistentCalls:
           m_Calls: []
+    selectedIndex: 0
   - name:
       UseConstant: 1
       ConstantValue: Assasin Creed
@@ -24962,6 +24984,7 @@ MonoBehaviour:
       OnInputFloat:
         m_PersistentCalls:
           m_Calls: []
+    selectedIndex: 0
   ActiveMapIndex: 1
   DefaultMap:
     name:
@@ -25521,6 +25544,7 @@ MonoBehaviour:
       OnInputFloat:
         m_PersistentCalls:
           m_Calls: []
+    selectedIndex: 0
   ActiveMap:
     name:
       UseConstant: 1
@@ -26355,6 +26379,7 @@ MonoBehaviour:
       OnInputFloat:
         m_PersistentCalls:
           m_Calls: []
+    selectedIndex: 0
   ResetAllInputsOnDisable: 1
   showInputEvents: 0
   ResetOnFocusLost: 0
@@ -26413,16 +26438,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShowOnPlay: 0
   PivotPosDir: 0
-  SelectedMode: 13
   SelectedState: 8
   SelectedStance: 7
   ShowStateInInspector: 1
   Editor_Tabs1: 0
   Editor_Tabs2: 4
+  SelectedMode: 13
   Mode_Tabs1: 1
   Ability_Tabs: 0
   Editor_EventTabs: 0
   showPivots: 1
+  showModeList: 1
+  showStateList: 1
   debugStates: 0
   debugStances: 0
   debugModes: 0
@@ -26863,10 +26890,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -26943,10 +26975,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -27023,10 +27060,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -27103,10 +27145,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls:
@@ -27209,10 +27256,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -27289,10 +27341,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -27369,10 +27426,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -27449,10 +27511,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -27564,10 +27631,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -27642,10 +27714,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -27760,10 +27837,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -27841,10 +27923,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -27922,10 +28009,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -28003,10 +28095,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -28157,10 +28254,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 0
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -28237,10 +28339,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 0
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -28317,10 +28424,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 0
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -28397,10 +28509,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 0
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -28514,10 +28631,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -28629,10 +28751,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -28746,10 +28873,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -28826,10 +28958,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -28906,10 +29043,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -28986,10 +29128,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -29066,10 +29213,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -29146,10 +29298,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -29226,10 +29383,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -29306,10 +29468,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -29386,10 +29553,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -29466,10 +29638,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -29546,10 +29723,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -29661,10 +29843,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -29739,10 +29926,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -29854,10 +30046,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -29932,10 +30129,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -30010,10 +30212,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -30125,10 +30332,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -30203,10 +30415,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -30281,10 +30498,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -30396,10 +30618,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -30474,10 +30701,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -30552,10 +30784,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -30667,10 +30904,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -30745,10 +30987,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -30823,10 +31070,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -30901,10 +31153,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -30979,10 +31236,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -31057,10 +31319,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -31172,10 +31439,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -31250,10 +31522,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -31328,10 +31605,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -31406,10 +31688,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -31484,10 +31771,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -31601,10 +31893,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -31681,10 +31978,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -31798,10 +32100,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -31878,10 +32185,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -31958,10 +32270,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -32038,10 +32355,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -32118,10 +32440,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -32233,10 +32560,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -32311,10 +32643,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -32389,10 +32726,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -32467,10 +32809,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -32545,10 +32892,15 @@ MonoBehaviour:
         Variable: {fileID: 0}
       Release: 0
       AdditivePosition: 1
+      AdditiveRotation: 1
       IgnoreGrounded: 0
       IgnoreGravity: 0
       NoYMovement: 0
       Persistent: 0
+      ReactEnter:
+        rid: -2
+      ReactExit:
+        rid: -2
       OnEnter:
         m_PersistentCalls:
           m_Calls: []
@@ -32592,7 +32944,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 1
     Variable: {fileID: 0}
-  height: 1.48
+  height: 1.5
   center: {x: 0, y: 1.5, z: 0}
   currentStance: {fileID: 11400000, guid: 87ae38bfe93fc3f449ecd25863e2a6fe, type: 2}
   defaultStance: {fileID: 11400000, guid: 87ae38bfe93fc3f449ecd25863e2a6fe, type: 2}
@@ -32669,7 +33021,7 @@ MonoBehaviour:
     UseConstant: 1
     ConstantValue: 15
     Variable: {fileID: 0}
-  AlignLoop:
+  AlignCycle:
     UseConstant: 1
     ConstantValue: 1
     Variable: {fileID: 0}
@@ -32684,7 +33036,7 @@ MonoBehaviour:
   slideThreshold: 10
   slideAmount: 0.25
   slideDamp: 15
-  Rotator: {fileID: 280712796391048703}
+  Rotator: {fileID: 1740864962484911381}
   RootBone: {fileID: 1740864962484911381}
   grounded:
     UseConstant: 1
@@ -32814,6 +33166,10 @@ MonoBehaviour:
     BankLerp:
       UseConstant: 1
       ConstantValue: 10
+      Variable: {fileID: 0}
+    UpDownMult:
+      UseConstant: 1
+      ConstantValue: 1
       Variable: {fileID: 0}
     states:
     - {fileID: 11400000, guid: 4dba83308a0851f4897d08125b3b9420, type: 2}
@@ -32946,6 +33302,10 @@ MonoBehaviour:
       UseConstant: 1
       ConstantValue: 10
       Variable: {fileID: 0}
+    UpDownMult:
+      UseConstant: 1
+      ConstantValue: 1
+      Variable: {fileID: 0}
     states:
     - {fileID: 11400000, guid: 7e364e53b77644c47aa3abdaa2e2c08c, type: 2}
     stances: []
@@ -33077,6 +33437,10 @@ MonoBehaviour:
       UseConstant: 1
       ConstantValue: 10
       Variable: {fileID: 0}
+    UpDownMult:
+      UseConstant: 1
+      ConstantValue: 1
+      Variable: {fileID: 0}
     states:
     - {fileID: 11400000, guid: 975403cc10f8cec46a3caa6ed4e3d6c5, type: 2}
     stances: []
@@ -33207,6 +33571,10 @@ MonoBehaviour:
     BankLerp:
       UseConstant: 1
       ConstantValue: 10
+      Variable: {fileID: 0}
+    UpDownMult:
+      UseConstant: 1
+      ConstantValue: 1
       Variable: {fileID: 0}
     states:
     - {fileID: 11400000, guid: 7370df9c769c2764381ad7c76eb3d949, type: 2}
@@ -33340,6 +33708,10 @@ MonoBehaviour:
     BankLerp:
       UseConstant: 1
       ConstantValue: 5
+      Variable: {fileID: 0}
+    UpDownMult:
+      UseConstant: 1
+      ConstantValue: 1
       Variable: {fileID: 0}
     states:
     - {fileID: 11400000, guid: 7370df9c769c2764381ad7c76eb3d949, type: 2}
@@ -33514,6 +33886,10 @@ MonoBehaviour:
       UseConstant: 1
       ConstantValue: 10
       Variable: {fileID: 0}
+    UpDownMult:
+      UseConstant: 1
+      ConstantValue: 1
+      Variable: {fileID: 0}
     states:
     - {fileID: 11400000, guid: e540d0fa5cbb6d148aaf89c2cf966b6a, type: 2}
     stances: []
@@ -33604,6 +33980,10 @@ MonoBehaviour:
       UseConstant: 1
       ConstantValue: 5
       Variable: {fileID: 0}
+    UpDownMult:
+      UseConstant: 1
+      ConstantValue: 1
+      Variable: {fileID: 0}
     states:
     - {fileID: 11400000, guid: 2f7727669c8fcdf4999e66cb669e2608, type: 2}
     stances: []
@@ -33693,6 +34073,10 @@ MonoBehaviour:
     BankLerp:
       UseConstant: 1
       ConstantValue: 10
+      Variable: {fileID: 0}
+    UpDownMult:
+      UseConstant: 1
+      ConstantValue: 1
       Variable: {fileID: 0}
     states:
     - {fileID: 11400000, guid: 7370df9c769c2764381ad7c76eb3d949, type: 2}
@@ -33869,6 +34253,10 @@ MonoBehaviour:
       UseConstant: 1
       ConstantValue: 10
       Variable: {fileID: 0}
+    UpDownMult:
+      UseConstant: 1
+      ConstantValue: 1
+      Variable: {fileID: 0}
     states:
     - {fileID: 11400000, guid: c44e7e8d6840aa243b6c33ec85052763, type: 2}
     stances: []
@@ -34041,6 +34429,10 @@ MonoBehaviour:
       UseConstant: 1
       ConstantValue: 10
       Variable: {fileID: 0}
+    UpDownMult:
+      UseConstant: 1
+      ConstantValue: 1
+      Variable: {fileID: 0}
     states:
     - {fileID: 11400000, guid: 7370df9c769c2764381ad7c76eb3d949, type: 2}
     - {fileID: 11400000, guid: 3787b6d94d5454740bf36d57436185b0, type: 2}
@@ -34173,6 +34565,10 @@ MonoBehaviour:
     BankLerp:
       UseConstant: 1
       ConstantValue: 10
+      Variable: {fileID: 0}
+    UpDownMult:
+      UseConstant: 1
+      ConstantValue: 1
       Variable: {fileID: 0}
     states:
     - {fileID: 11400000, guid: 7370df9c769c2764381ad7c76eb3d949, type: 2}
@@ -34390,6 +34786,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   OnMovementDetected:
+    m_PersistentCalls:
+      m_Calls: []
+  OnFreeMovement:
     m_PersistentCalls:
       m_Calls: []
   OnStateActivate:
@@ -34660,6 +35059,8 @@ MonoBehaviour:
       type: {class: StatReaction, ns: MalbersAnimations.Reactions, asm: MalbersAnimations}
       data:
         Active: 1
+        useLocalTarget: 0
+        LocalTarget: {fileID: 0}
         delay: 0
         modifiers:
         - ID: {fileID: 11400000, guid: d6b3e636d59a6c547a2cad40b69f4432, type: 2}
@@ -34680,6 +35081,8 @@ MonoBehaviour:
       type: {class: StatReaction, ns: MalbersAnimations.Reactions, asm: MalbersAnimations}
       data:
         Active: 1
+        useLocalTarget: 0
+        LocalTarget: {fileID: 0}
         delay: 0
         modifiers:
         - ID: {fileID: 11400000, guid: d6b3e636d59a6c547a2cad40b69f4432, type: 2}
@@ -35244,6 +35647,8 @@ MonoBehaviour:
       type: {class: ModeReaction, ns: MalbersAnimations.Reactions, asm: MalbersAnimations}
       data:
         Active: 1
+        useLocalTarget: 0
+        LocalTarget: {fileID: 0}
         delay: 0
         type: 0
         ID: {fileID: 11400000, guid: b04409080ae7e3c4fa645d8c67b40424, type: 2}
@@ -36152,6 +36557,8 @@ MonoBehaviour:
     AdvancedBool: 0
     InvertBool: 0
     multiplier: 1
+  ShowEvents: 1
+  SelectedEvent: 0
 --- !u!114 &8041256919538804360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36299,6 +36706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580e703fe3c4ea64a855a7104b1d92f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ExitByMode: 0
   SmoothEquip: 0
   UseWeaponsOnlyWhileRiding: 1
   animal: {fileID: 8757697015621566075}
@@ -36332,9 +36740,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c44e7e8d6840aa243b6c33ec85052763, type: 2}
   - {fileID: 11400000, guid: adfa24f62d6db4d40a1d837f4ec1a6e9, type: 2}
   ExitFast: 1
+  StoreSelfHolster: 0
   UseExternal: 0
   InstantiateOnEquip: 1
   DestroyOnUnequip: 1
+  OverrideWeaponLayer:
+    UseConstant: 1
+    ConstantValue:
+      serializedVersion: 2
+      m_Bits: 0
+    Variable: {fileID: 0}
   UseHolsters: 1
   holsters:
   - ID: {fileID: 11400000, guid: 8be06e7fc27c57c4e82d4a5cafd76296, type: 2}
@@ -37653,19 +38068,19 @@ MonoBehaviour:
   parent: 7
   LocalPos:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   LocalRot:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   PosOffset:
     UseConstant: 1
-    ConstantValue: {x: 0, y: 0, z: 0}
+    ConstantValue: {x: 0, y: 0.21, z: 0}
     Variable: {fileID: 0}
   RotOffset:
     UseConstant: 1
-    ConstantValue: {x: 0, y: 0, z: 0}
+    ConstantValue: {x: 0, y: 0, z: 180}
     Variable: {fileID: 0}
 --- !u!114 &8761443987611750045
 MonoBehaviour:
@@ -37806,6 +38221,7 @@ MonoBehaviour:
       serializedVersion: 2
       m_Bits: 4294967295
     Variable: {fileID: 11400000, guid: f489db1856e43dc47b175dd125135bdc, type: 2}
+  AttackDirection: 0
   triggerInteraction: 1
   owner: {fileID: 6915115654562247252}
   m_HitEffect:
@@ -38033,11 +38449,11 @@ MonoBehaviour:
   parent: 4
   LocalPos:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   LocalRot:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   PosOffset:
     UseConstant: 1
@@ -43100,8 +43516,6 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -43170,10 +43584,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c9e1c739667d64191e8be828fadc68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onStart: 0
+  rateOverTime: 200
   m_Particles:
   - {fileID: 3884740116791405159}
   - {fileID: 4142311434058227590}
-  rateOverTime: 200
 --- !u!1 &7888309628944097509
 GameObject:
   m_ObjectHideFlags: 0
@@ -43286,19 +43701,19 @@ MonoBehaviour:
   parent: 54
   LocalPos:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   LocalRot:
     UseConstant: 1
-    ConstantValue: 0
+    ConstantValue: 1
     Variable: {fileID: 0}
   PosOffset:
     UseConstant: 1
-    ConstantValue: {x: 0, y: 0, z: 0}
+    ConstantValue: {x: 0.011, y: 0.061, z: -0.09}
     Variable: {fileID: 0}
   RotOffset:
     UseConstant: 1
-    ConstantValue: {x: 0, y: 0, z: 0}
+    ConstantValue: {x: 246.03, y: -125.792, z: -65.532}
     Variable: {fileID: 0}
 --- !u!114 &1757154917263591344
 MonoBehaviour:
@@ -48710,8 +49125,6 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -53827,8 +54240,6 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:

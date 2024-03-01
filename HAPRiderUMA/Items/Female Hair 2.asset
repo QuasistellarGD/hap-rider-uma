@@ -14,14 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ID: 0
   type: {fileID: 11400000, guid: 6b26e94ff3a96b1469b0c38fa8e03c19, type: 2}
+  RecipeToLearn: {fileID: 0}
+  subType: 0
   icon: {fileID: 21300000, guid: 1daa9b20b431b164ca35fc614c9fca1d, type: 3}
   itemName: Female Hair 2
   description: ' Hair 2'
   subtitleText: Hair 2
+  UseItemStatModifiers: 0
   SellValueOfItem: 100
   Stackable: 0
   maxStacks: 99
-  rarityOfItem: 0
+  BuffDebuffDescription: 
+  armourType: 0
+  rarityType: {fileID: 11400000, guid: 9c7674027a5c9f849b48aa02f6acef00, type: 2}
   inWorldPrefab: {fileID: 8881869595417596589, guid: 52c6ee5394de9b449b1fb1a5a1119484,
     type: 3}
   Equippable: 1
@@ -65,8 +70,8 @@ MonoBehaviour:
     reaction:
       rid: 9139710551069032536
   Editor_Tabs1: 0
+  textRecipeName: FemaleHair2
   textRecipe: {fileID: 11400000, guid: 967f84b71a1548d4580a76c279ec5389, type: 2}
-  wardrobeSlot: Hair
   inventorySlot: {fileID: 0}
   references:
     version: 2
@@ -75,24 +80,34 @@ MonoBehaviour:
       type: {class: UseItemReaction, ns: MalbersAnimations.InventorySystem, asm: MalbersAnimations}
       data:
         Active: 1
+        useLocalTarget: 0
+        LocalTarget: {fileID: 0}
         delay: 0
     - rid: 9139710551069032535
       type: {class: DropItemReaction, ns: MalbersAnimations.InventorySystem, asm: MalbersAnimations}
       data:
         Active: 1
+        useLocalTarget: 0
+        LocalTarget: {fileID: 0}
         delay: 0
     - rid: 9139710551069032536
       type: {class: RemoveItemReaction, ns: MalbersAnimations.InventorySystem, asm: MalbersAnimations}
       data:
         Active: 1
+        useLocalTarget: 0
+        LocalTarget: {fileID: 0}
         delay: 0
     - rid: 9139710593230700596
       type: {class: UnequipClothingItemReaction, ns: , asm: Assembly-CSharp}
       data:
         Active: 1
+        useLocalTarget: 0
+        LocalTarget: {fileID: 0}
         delay: 0
     - rid: 9139710593230700597
       type: {class: EquipClothingItemReaction, ns: , asm: Assembly-CSharp}
       data:
         Active: 1
+        useLocalTarget: 0
+        LocalTarget: {fileID: 0}
         delay: 0

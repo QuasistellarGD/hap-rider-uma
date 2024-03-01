@@ -22,7 +22,7 @@ public class UnequipClothingItemReaction : InventoryMasterReaction
         }
 
         // get item as UMAWardrobeItem
-        UMAWardrobeItem wardrobeItem = invMaster.currentSelectedSlot.item as UMAWardrobeItem;
+        UMAWardrobeItem wardrobeItem = invMaster.currentSelectedSlot.item.item as UMAWardrobeItem;
         // set the current inventory slot
         wardrobeItem.inventorySlot = invMaster.currentSelectedSlot;
 

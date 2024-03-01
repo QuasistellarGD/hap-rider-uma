@@ -15,11 +15,11 @@ public class EquipClothingItemReaction : InventoryMasterReaction
         if (invMaster == null) return false;
 
         // get item as UMAWardrobeItem
-        UMAWardrobeItem wardrobeItem = invMaster.currentSelectedSlot.item as UMAWardrobeItem;
+        UMAWardrobeItem wardrobeItem = invMaster.currentSelectedSlot.item.item as UMAWardrobeItem;
         // set the current inventory slot
         wardrobeItem.inventorySlot = invMaster.currentSelectedSlot;
 
-        //Debug.Log("Equipped: <color=yellow>" + invMaster.currentSelectedSlot.item.name + "</color>");
+        //Debug.Log("Equipped: <color=yellow>" + invMaster.currentSelectedSlot.item.item.name + "</color>");
 
         UMARider umaRider = invMaster.character.Value.GetComponent<UMARider>();
         // let umarider handle the equipping
@@ -29,7 +29,7 @@ public class EquipClothingItemReaction : InventoryMasterReaction
         {
             invMaster.currentSelectedSlot.draggable.FocusOnItem();
             //OnItemEquipped.Invoke(null);
-            invMaster.currentSelectedSlot.item.OnItemEquipped.Invoke(null); //Item Event
+            invMaster.currentSelectedSlot.item.item.OnItemEquipped.Invoke(null); //Item Event
             invMaster.currentSelectedSlot.inventory.OnItemEquipped.Invoke(null); //Inventory Event
         }
 

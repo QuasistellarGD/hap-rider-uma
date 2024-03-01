@@ -15,11 +15,12 @@ public class UMARider : MonoBehaviour
     private DynamicCharacterAvatar characterAvatar;
     private MWeaponManager weaponManager;
     private MInventory inventory;
-    private Animator Anim;
+    private Animator animator;
     private IAim aim;
     private LookAt lookAt;
     private MalbersAnimations.Controller.MAnimal mAnimal;
     private MRider rider;
+    private HumanoidParent[] humanoidParents;
 
     private Dictionary<string, UMAWardrobeItem> equippedWardrobeItems = new Dictionary<string, UMAWardrobeItem>();
 
@@ -29,6 +30,7 @@ public class UMARider : MonoBehaviour
     private Transform rightHand;
     private Transform leftHand;
 
+    // equip points should become humanoid parents
     private GameObject rightHandEquipPoint;
     private GameObject leftHandEquipPoint;
 
@@ -46,25 +48,26 @@ public class UMARider : MonoBehaviour
         characterAvatar = GetComponent<DynamicCharacterAvatar>();
         weaponManager = gameObject.GetComponent<MWeaponManager>();
         inventory = gameObject.GetComponent<MInventory>();
-        Anim = gameObject.GetComponent<Animator>();
+        animator = gameObject.GetComponent<Animator>();
         aim = gameObject.GetComponent<IAim>();
         lookAt = gameObject.GetComponent<LookAt>();
         mAnimal = gameObject.GetComponent<MalbersAnimations.Controller.MAnimal>();
         rider = gameObject.GetComponent<MRider>();
+        humanoidParents = gameObject.GetComponentsInChildren<HumanoidParent>();
     }
 
     private void FindCharacterTransforms()
     {
         root = transform.Find("Root");
-        head = transform.Find("Root/Global/Position/Hips/LowerBack/Spine/Spine1/Neck/Head");
-        neck = transform.Find("Root/Global/Position/Hips/LowerBack/Spine/Spine1/Neck");
-        rightHand = transform.Find("Root/Global/Position/Hips/LowerBack/Spine/Spine1/RightShoulder/RightArm/RightForeArm/RightHand");
-        leftHand = transform.Find("Root/Global/Position/Hips/LowerBack/Spine/Spine1/LeftShoulder/LeftArm/LeftForeArm/LeftHand");
+        head = animator.GetBoneTransform(HumanBodyBones.Head);
+        neck = animator.GetBoneTransform(HumanBodyBones.Neck);
+        rightHand = animator.GetBoneTransform(HumanBodyBones.RightHand);
+        leftHand = animator.GetBoneTransform(HumanBodyBones.LeftHand);
     }
 
     public void EquipUMAWardrobeItem(UMAWardrobeItem wardrobeItem)
     {
-        if(equippedWardrobeItems.ContainsKey(wardrobeItem.wardrobeSlot))
+        if(equippedWardrobeItems.ContainsKey(wardrobeItem.textRecipe.wardrobeSlot))
         {
             //Debug.Log("UMA Unequip Previous item: <color=yellow>" + equippedWardrobeItems[wardrobeItem.wardrobeSlot].name + "</color>");
             characterAvatar.ClearSlot(wardrobeItem.textRecipe.wardrobeSlot);
@@ -72,14 +75,14 @@ public class UMARider : MonoBehaviour
             //equippedWardrobeItems[wardrobeItem.wardrobeSlot].inventorySlot.item.OnItemUnEquipped.Invoke(null); //Item Event
             //equippedWardrobeItems[wardrobeItem.wardrobeSlot].inventorySlot.inventory.OnItemUnEquipped.Invoke(null); //Inventory Event
 
-            equippedWardrobeItems[wardrobeItem.wardrobeSlot].inventorySlot.equippedSlot = false;
-            equippedWardrobeItems[wardrobeItem.wardrobeSlot].inventorySlot.EquippedText.gameObject.SetActive(false);
+            equippedWardrobeItems[wardrobeItem.textRecipe.wardrobeSlot].inventorySlot.equippedSlot = false;
+            equippedWardrobeItems[wardrobeItem.textRecipe.wardrobeSlot].inventorySlot.EquippedText.gameObject.SetActive(false);
 
-            equippedWardrobeItems.Remove(wardrobeItem.wardrobeSlot);
+            equippedWardrobeItems.Remove(wardrobeItem.textRecipe.wardrobeSlot);
         }
 
         //Debug.Log("Equip new item: <color=yellow>" + wardrobeItem.name + "</color>");
-        equippedWardrobeItems.Add(wardrobeItem.wardrobeSlot, wardrobeItem);
+        equippedWardrobeItems.Add(wardrobeItem.textRecipe.wardrobeSlot, wardrobeItem);
         wardrobeItem.inventorySlot.equippedSlot = true;
         wardrobeItem.inventorySlot.EquippedText.gameObject.SetActive(true);
 
@@ -95,12 +98,12 @@ public class UMARider : MonoBehaviour
 
     public void UnequipUMAWardrobeItem(UMAWardrobeItem wardrobeItem)
     {
-        if (equippedWardrobeItems.ContainsKey(wardrobeItem.wardrobeSlot))
+        if (equippedWardrobeItems.ContainsKey(wardrobeItem.textRecipe.wardrobeSlot))
         {
-            equippedWardrobeItems.Remove(wardrobeItem.wardrobeSlot);
+            equippedWardrobeItems.Remove(wardrobeItem.textRecipe.wardrobeSlot);
         }
 
-        wardrobeItem.inventorySlot.item.OnItemUnEquipped.Invoke(null); //Item Event
+        //wardrobeItem.inventorySlot.item.OnItemUnEquipped.Invoke(null); //Item Event
         wardrobeItem.inventorySlot.inventory.OnItemUnEquipped.Invoke(null); //Inventory Event
 
         //Debug.Log("UMA Unequipped: <color=yellow>" + wardrobeItem.textRecipe.wardrobeSlot + "</color>");
@@ -118,8 +121,40 @@ public class UMARider : MonoBehaviour
     /// </summary>
     private void FireBeforeCharacterUpdate()
     {
+        foreach(HumanoidParent humanoidParent in humanoidParents)
+        {
+            humanoidParent.transform.SetParent(null, true);
+        }
+
         rightHandEquipPoint.transform.SetParent(null, true);
         leftHandEquipPoint.transform.SetParent(null, true);
+    }
+
+    private void FireAfterCharacterUpdate()
+    {
+        foreach (HumanoidParent humanoidParent in humanoidParents)
+        {
+            if (animator != null)
+            {
+                var boneParent = animator.GetBoneTransform(humanoidParent.parent);
+
+                if (boneParent != null)
+                {
+                    humanoidParent.transform.parent = boneParent;
+
+                    if (humanoidParent.LocalPos.Value) humanoidParent.transform.localPosition = Vector3.zero;
+                    if (humanoidParent.LocalRot.Value) humanoidParent.transform.localRotation = Quaternion.identity;
+                    
+                    humanoidParent.transform.localScale = boneParent.transform.localScale;
+                    humanoidParent.transform.localPosition += humanoidParent.PosOffset;
+                    humanoidParent.transform.localRotation *= Quaternion.Euler(humanoidParent.RotOffset);
+                }
+            }
+        }
+
+        SetRightHandEquipPointParent();
+
+        SetLeftHandEquipPointParent();
     }
 
     // should be called on UMA updated event
@@ -127,19 +162,13 @@ public class UMARider : MonoBehaviour
     {
         FindCharacterTransforms();
 
-        SetRightHandEquipPointParent();
-        
-        SetLeftHandEquipPointParent();
+        FireAfterCharacterUpdate();
 
-        if (weaponManager)
-        {
-            SetWeaponManagerTransforms();
-        }
+        SetWeaponManagerTransforms();
 
-        if (rider)
-        {
-            SetRiderTransforms();
-        }
+        SetRiderTransforms();
+
+        SetLookAtBones();
 
         mAnimal.ResetController();
     }
@@ -155,15 +184,11 @@ public class UMARider : MonoBehaviour
         leftHandEquipPoint = new GameObject("LeftHandPoint");
         SetLeftHandEquipPointParent();
 
-        if (weaponManager)
-        {
-            SetWeaponManagerTransforms();
-        }
+        SetWeaponManagerTransforms();
 
-        if (rider)
-        {
-            SetRiderTransforms();
-        }
+        SetRiderTransforms();
+
+        SetLookAtBones();
 
         // this works with the Rider's holders, which expects that the weapons should already be instantiated
         /*if (backHolderWeapon)
@@ -201,35 +226,41 @@ public class UMARider : MonoBehaviour
 
     private void SetRiderTransforms()
     {
-        //rider.RightHandEquipPoint = rightHandEquipPoint.transform;
-        //rider.LeftHandEquipPoint = leftHandPoint.transform;
-        //rider.HolderBack = holderBack.transform;
-        //rider.HolderRight = holderRight.transform;
-        //rider.HolderLeft = holderLeft.transform;
+        if (rider)
+        {
+            //rider.RightHandEquipPoint = rightHandEquipPoint.transform;
+            //rider.LeftHandEquipPoint = leftHandPoint.transform;
+            //rider.HolderBack = holderBack.transform;
+            //rider.HolderRight = holderRight.transform;
+            //rider.HolderLeft = holderLeft.transform;
 
-        // we had to change set accessors for these on the RiderCombat class in MRider.cs
-        //rider.RiderRoot = transform.root;
-        rider.Chest = Anim.GetBoneTransform(HumanBodyBones.Chest);                   //Get the Rider Head transform
-        rider.Spine = Anim.GetBoneTransform(HumanBodyBones.Spine);                     //Get the Rider Head transform
-        //--------------
-        //rider.Head = Anim.GetBoneTransform(HumanBodyBones.Head);                     //Get the Rider Head transform
-        rider.RightHand = Anim.GetBoneTransform(HumanBodyBones.RightHand);           //Get the Rider Right Hand transform
-        rider.LeftHand = Anim.GetBoneTransform(HumanBodyBones.LeftHand);             //Get the Rider Left  Hand transform
-        //rider.RightShoulder = Anim.GetBoneTransform(HumanBodyBones.RightUpperArm);   //Get the Rider Right Shoulder transform
-        //rider.LeftShoulder = Anim.GetBoneTransform(HumanBodyBones.LeftUpperArm);
+            // we had to change set accessors for these on the RiderCombat class in MRider.cs
+            //rider.RiderRoot = transform.root;
+            rider.Chest = animator.GetBoneTransform(HumanBodyBones.Chest);                   //Get the Rider Head transform
+            rider.Spine = animator.GetBoneTransform(HumanBodyBones.Spine);                     //Get the Rider Head transform
+            //--------------
+            //rider.Head = Anim.GetBoneTransform(HumanBodyBones.Head);                     //Get the Rider Head transform
+            rider.RightHand = animator.GetBoneTransform(HumanBodyBones.RightHand);           //Get the Rider Right Hand transform
+            rider.LeftHand = animator.GetBoneTransform(HumanBodyBones.LeftHand);             //Get the Rider Left  Hand transform
+            //rider.RightShoulder = Anim.GetBoneTransform(HumanBodyBones.RightUpperArm);   //Get the Rider Right Shoulder transform
+            //rider.LeftShoulder = Anim.GetBoneTransform(HumanBodyBones.LeftUpperArm);
+        }
     }
 
     private void SetWeaponManagerTransforms()
     {
-        //weaponManager.RightShoulder = Anim.GetBoneTransform(HumanBodyBones.RightUpperArm);
-        //weaponManager.LeftShoulder = Anim.GetBoneTransform(HumanBodyBones.LeftUpperArm);
-        weaponManager.RightHand = Anim.GetBoneTransform(HumanBodyBones.RightHand);
-        weaponManager.LeftHand = Anim.GetBoneTransform(HumanBodyBones.LeftHand);
-        //weaponManager.Head = Anim.GetBoneTransform(HumanBodyBones.Head);
-        //weaponManager.Chest = Anim.GetBoneTransform(HumanBodyBones.Chest);
+        if (weaponManager)
+        {
+            //weaponManager.RightShoulder = Anim.GetBoneTransform(HumanBodyBones.RightUpperArm);
+            //weaponManager.LeftShoulder = Anim.GetBoneTransform(HumanBodyBones.LeftUpperArm);
+            weaponManager.RightHand = animator.GetBoneTransform(HumanBodyBones.RightHand);
+            weaponManager.LeftHand = animator.GetBoneTransform(HumanBodyBones.LeftHand);
+            //weaponManager.Head = Anim.GetBoneTransform(HumanBodyBones.Head);
+            //weaponManager.Chest = Anim.GetBoneTransform(HumanBodyBones.Chest);
 
-        weaponManager.LeftHandEquipPoint = leftHandEquipPoint.transform;
-        weaponManager.RightHandEquipPoint = rightHandEquipPoint.transform;
+            weaponManager.LeftHandEquipPoint = leftHandEquipPoint.transform;
+            weaponManager.RightHandEquipPoint = rightHandEquipPoint.transform;
+        }
     }
 
     void SetRightHandEquipPointParent()
@@ -250,5 +281,14 @@ public class UMARider : MonoBehaviour
         leftHandEquipPoint.transform.localPosition = equipPointLeftOffset;
         leftHandEquipPoint.transform.localRotation = Quaternion.Euler(equipPointLeftRotation);
         leftHandEquipPoint.transform.localScale = new Vector3(1f, 1f, 1f);
+    }
+
+    void SetLookAtBones()
+    {
+        if (lookAt != null)
+        {
+            lookAt.Bones[0].bone = neck;
+            lookAt.Bones[1].bone = head;
+        }
     }
 }
