@@ -20161,7 +20161,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7227768590030030611
 Transform:
   m_ObjectHideFlags: 0
@@ -34668,7 +34668,7 @@ MonoBehaviour:
       Variable: {fileID: 0}
     position:
       UseConstant: 1
-      ConstantValue: 0
+      ConstantValue: 4.908939
       Variable: {fileID: 0}
     lerpPosition:
       UseConstant: 1
@@ -34692,7 +34692,7 @@ MonoBehaviour:
       Variable: {fileID: 0}
     lerpAnimator:
       UseConstant: 1
-      ConstantValue: 4
+      ConstantValue: 5
       Variable: {fileID: 0}
     strafeSpeed:
       UseConstant: 1
