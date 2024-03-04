@@ -221,6 +221,9 @@ public class UMARider : MonoBehaviour
             }
         }*/
 
+        mAnimal.Rotator = root;
+        mAnimal.RootBone = root;
+
         mAnimal.ResetController();
     }
 
