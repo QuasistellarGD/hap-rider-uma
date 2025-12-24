@@ -12,11 +12,13 @@ public class UnequipClothingItemReaction : InventoryMasterReaction
 
     protected override bool _TryReact(Component component)
     {
+        //Debug.Log("Unequipping: <color=yellow>try unequip</color>");
+
         //Get Main Character and Weapon Manager Reference.
         InventoryMaster invMaster = component as InventoryMaster;
         if (invMaster == null) return false;
 
-        if (!invMaster.currentSelectedSlot.equippedSlot)
+        if (invMaster.currentSelectedSlot && !invMaster.currentSelectedSlot.equippedSlot)
         {
             return true; // it means we aren't selecting the current equipped slot so therefore we cannot proceed...
         }

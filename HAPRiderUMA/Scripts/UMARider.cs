@@ -8,6 +8,8 @@ using MalbersAnimations.Utilities;
 using UMA;
 using UMA.CharacterSystem;
 using System;
+using UnityEngine.Events;
+using System.Linq;
 
 [RequireComponent(typeof(DynamicCharacterAvatar))]
 public class UMARider : MonoBehaviour
@@ -20,7 +22,10 @@ public class UMARider : MonoBehaviour
     private LookAt lookAt;
     private MalbersAnimations.Controller.MAnimal mAnimal;
     private MRider rider;
-    private HumanoidParent[] humanoidParents;
+    public HumanoidParent[] humanoidParents;
+
+    private Dictionary<string, Vector3> humanoidParentsPositions = new Dictionary<string, Vector3>();
+    private Dictionary<string, Quaternion> humanoidParentsRotations = new Dictionary<string, Quaternion>();
 
     private Dictionary<string, UMAWardrobeItem> equippedWardrobeItems = new Dictionary<string, UMAWardrobeItem>();
 
@@ -31,8 +36,8 @@ public class UMARider : MonoBehaviour
     private Transform leftHand;
 
     // equip points should become humanoid parents
-    private GameObject rightHandEquipPoint;
-    private GameObject leftHandEquipPoint;
+    public GameObject rightHandEquipPoint;
+    public GameObject leftHandEquipPoint;
 
     /*public GameObject backHolderWeapon;
     public GameObject rightHolderWeapon;
@@ -44,7 +49,15 @@ public class UMARider : MonoBehaviour
     public Vector3 equipPointLeftOffset = new Vector3(0.0299999993f, 0.0110999998f, -0.0274999999f);
     public Vector3 equipPointLeftRotation = new Vector3(-105.530998f, -44.1660194f, 43.1020088f);
 
-    void Start () {
+    private void Awake()
+    {
+        DynamicCharacterAvatar dca = GetComponent<DynamicCharacterAvatar>();
+        dca.CharacterCreated.AddListener(delegate { OnCharacterCreated(); });
+        dca.CharacterUpdated.AddListener(delegate { OnCharacterUpdated(); });
+    }
+
+    void Start()
+    {
         characterAvatar = GetComponent<DynamicCharacterAvatar>();
         weaponManager = gameObject.GetComponent<MWeaponManager>();
         inventory = gameObject.GetComponent<MInventory>();
@@ -54,6 +67,12 @@ public class UMARider : MonoBehaviour
         mAnimal = gameObject.GetComponent<MalbersAnimations.Controller.MAnimal>();
         rider = gameObject.GetComponent<MRider>();
         humanoidParents = gameObject.GetComponentsInChildren<HumanoidParent>();
+
+        foreach (HumanoidParent humanoidParent in humanoidParents)
+        {
+            humanoidParentsPositions.Add(humanoidParent.name, humanoidParent.transform.localPosition);
+            humanoidParentsRotations.Add(humanoidParent.name, humanoidParent.transform.localRotation);
+        }
     }
 
     private void FindCharacterTransforms()
@@ -65,20 +84,16 @@ public class UMARider : MonoBehaviour
         leftHand = animator.GetBoneTransform(HumanBodyBones.LeftHand);
     }
 
-    public void EquipUMAWardrobeItem(UMAWardrobeItem wardrobeItem)
+    public bool EquipUMAWardrobeItem(UMAWardrobeItem wardrobeItem)
     {
+        if(!wardrobeItem.textRecipe.compatibleRaces.Contains(characterAvatar.activeRace.name)) { return false; }
+
+        Debug.Log("Equip: "+wardrobeItem.textRecipe.name+" "+wardrobeItem.textRecipe.wardrobeSlot);
         if(equippedWardrobeItems.ContainsKey(wardrobeItem.textRecipe.wardrobeSlot))
         {
-            //Debug.Log("UMA Unequip Previous item: <color=yellow>" + equippedWardrobeItems[wardrobeItem.wardrobeSlot].name + "</color>");
-            characterAvatar.ClearSlot(wardrobeItem.textRecipe.wardrobeSlot);
+            Debug.Log("Unequip Previous item: <color=yellow>" + equippedWardrobeItems[wardrobeItem.textRecipe.wardrobeSlot].name + "</color>");
 
-            //equippedWardrobeItems[wardrobeItem.wardrobeSlot].inventorySlot.item.OnItemUnEquipped.Invoke(null); //Item Event
-            //equippedWardrobeItems[wardrobeItem.wardrobeSlot].inventorySlot.inventory.OnItemUnEquipped.Invoke(null); //Inventory Event
-
-            equippedWardrobeItems[wardrobeItem.textRecipe.wardrobeSlot].inventorySlot.equippedSlot = false;
-            equippedWardrobeItems[wardrobeItem.textRecipe.wardrobeSlot].inventorySlot.EquippedText.gameObject.SetActive(false);
-
-            equippedWardrobeItems.Remove(wardrobeItem.textRecipe.wardrobeSlot);
+            UnequipUMAWardrobeItem(equippedWardrobeItems[wardrobeItem.textRecipe.wardrobeSlot], true);
         }
 
         //Debug.Log("Equip new item: <color=yellow>" + wardrobeItem.name + "</color>");
@@ -87,32 +102,42 @@ public class UMARider : MonoBehaviour
         wardrobeItem.inventorySlot.EquippedText.gameObject.SetActive(true);
 
         //Debug.Log("UMA Equip: <color=yellow>" + wardrobeItem.name + "</color>");
+        DynamicCharacterAvatar.WardrobeRecipeListItem wardrobeRecipeListItem = new DynamicCharacterAvatar.WardrobeRecipeListItem();
+        wardrobeRecipeListItem._recipe = wardrobeItem.textRecipe;
+        wardrobeRecipeListItem._recipeName = wardrobeItem.textRecipeName;
+        characterAvatar.preloadWardrobeRecipes.recipes.Add(wardrobeRecipeListItem);
+        characterAvatar.WardrobeRecipes.Add(wardrobeItem.textRecipeName, wardrobeItem.textRecipe);
         characterAvatar.SetSlot(wardrobeItem.textRecipe);
-
-        // catch holders before they are lost at rebuild of character - otherwise we possibly lose our weapons
-        FireBeforeCharacterUpdate();
 
         characterAvatar.BuildCharacter(true);
 
+        return true;
+
     }
 
-    public void UnequipUMAWardrobeItem(UMAWardrobeItem wardrobeItem)
+    public void UnequipUMAWardrobeItem(UMAWardrobeItem wardrobeItem, bool noRebuild = false)
     {
+        Debug.Log("Unequip: " + wardrobeItem.textRecipe.name + " " + wardrobeItem.textRecipe.wardrobeSlot);
         if (equippedWardrobeItems.ContainsKey(wardrobeItem.textRecipe.wardrobeSlot))
         {
             equippedWardrobeItems.Remove(wardrobeItem.textRecipe.wardrobeSlot);
         }
 
-        //wardrobeItem.inventorySlot.item.OnItemUnEquipped.Invoke(null); //Item Event
         wardrobeItem.inventorySlot.inventory.OnItemUnEquipped.Invoke(null); //Inventory Event
 
+        wardrobeItem.inventorySlot.equippedSlot = false;
+        wardrobeItem.inventorySlot.EquippedText.gameObject.SetActive(false);
+
         //Debug.Log("UMA Unequipped: <color=yellow>" + wardrobeItem.textRecipe.wardrobeSlot + "</color>");
+        DynamicCharacterAvatar.WardrobeRecipeListItem wardrobeRecipeListItem = characterAvatar.preloadWardrobeRecipes.recipes.Where(x => x._recipeName == wardrobeItem.textRecipeName).First<DynamicCharacterAvatar.WardrobeRecipeListItem>();
+        characterAvatar.preloadWardrobeRecipes.recipes.Remove(wardrobeRecipeListItem);
+        characterAvatar.WardrobeRecipes.Remove(wardrobeItem.textRecipeName);
         characterAvatar.ClearSlot(wardrobeItem.textRecipe.wardrobeSlot);
-        characterAvatar.ReapplyWardrobeCollections();
 
-        FireBeforeCharacterUpdate();
-
-        characterAvatar.BuildCharacter(true);
+        if (!noRebuild)
+        {
+            characterAvatar.BuildCharacter(true);
+        }
     }
 
     /// <summary>
@@ -121,7 +146,9 @@ public class UMARider : MonoBehaviour
     /// </summary>
     private void FireBeforeCharacterUpdate()
     {
-        foreach(HumanoidParent humanoidParent in humanoidParents)
+        Debug.Log("FireBeforeCharacterUpdate");
+        humanoidParents = gameObject.GetComponentsInChildren<HumanoidParent>();
+        foreach (HumanoidParent humanoidParent in humanoidParents)
         {
             humanoidParent.transform.SetParent(null, true);
         }
@@ -130,6 +157,12 @@ public class UMARider : MonoBehaviour
         leftHandEquipPoint.transform.SetParent(null, true);
     }
 
+    /// <summary>
+    /// Updates the transform of each humanoid parent to match the corresponding bone transform in the animator.
+    /// </summary>
+    /// <remarks>This method iterates over all humanoid parents and adjusts their transform properties such as
+    /// position, rotation, and scale to align with the animator's bone transforms. It also applies any specified
+    /// position and rotation offsets. Additionally, it sets the parent for right and left hand equip points.</remarks>
     private void FireAfterCharacterUpdate()
     {
         foreach (HumanoidParent humanoidParent in humanoidParents)
@@ -137,9 +170,12 @@ public class UMARider : MonoBehaviour
             if (animator != null)
             {
                 var boneParent = animator.GetBoneTransform(humanoidParent.parent);
-
+                // this is almost the same as calling HumanoidParent.Align, but that's a private function and I'm setting scale as well.
                 if (boneParent != null)
                 {
+                    /*humanoidParent.transform.position = transform.position+humanoidParentsPositions[humanoidParent.name];
+                    humanoidParent.transform.rotation = humanoidParentsRotations[humanoidParent.name];*/
+
                     humanoidParent.transform.parent = boneParent;
 
                     if (humanoidParent.LocalPos.Value) humanoidParent.transform.localPosition = Vector3.zero;
@@ -157,7 +193,11 @@ public class UMARider : MonoBehaviour
         SetLeftHandEquipPointParent();
     }
 
-    // should be called on UMA updated event
+    /// <summary>
+    /// Handles updates to the character's state and configuration after a UMA update event. Should be called on UMA updated event.
+    /// </summary>
+    /// <remarks>This method should be called in response to a UMA character update event. It ensures that all
+    /// character-related transforms and components are correctly set up and ready for use.</remarks>
     public void OnCharacterUpdated()
     {
         FindCharacterTransforms();
@@ -173,9 +213,15 @@ public class UMARider : MonoBehaviour
         mAnimal.ResetController();
     }
 
-    // should be called on UMA created event
-    public void OnCharacterCreated () {
-
+    /// <summary>
+    /// Initializes character components and sets up equipment points after a character is created. Should be called on UMA created event.
+    /// </summary>
+    /// <remarks>This method should be called in response to the UMA character creation event. It sets up the
+    /// necessary transforms for character equipment and initializes the character's weapon management and rider
+    /// components. The method also configures the character's look-at bones and resets the character
+    /// controller.</remarks>
+    public void OnCharacterCreated ()
+    {
         FindCharacterTransforms();
 
         rightHandEquipPoint = new GameObject("RightHandPoint");
@@ -189,6 +235,8 @@ public class UMARider : MonoBehaviour
         SetRiderTransforms();
 
         SetLookAtBones();
+
+        FireAfterCharacterUpdate();
 
         // this works with the Rider's holders, which expects that the weapons should already be instantiated
         /*if (backHolderWeapon)
@@ -292,6 +340,7 @@ public class UMARider : MonoBehaviour
         {
             lookAt.Bones[0].bone = neck;
             lookAt.Bones[1].bone = head;
+            lookAt.SetEnable(true);
         }
     }
 }

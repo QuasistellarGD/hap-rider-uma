@@ -1,0 +1,177 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e7768a796a0de4ea324d6e201ca230, type: 3}
+  m_Name: BaseWardrobeItem
+  m_EditorClassIdentifier: 
+  ID: 0
+  type: {fileID: 11400000, guid: 6b26e94ff3a96b1469b0c38fa8e03c19, type: 2}
+  RecipeToLearn: {fileID: 0}
+  iconPath: 
+  subType: 0
+  icon: {fileID: 21300000, guid: e47d2d0b1ae90f9489c66d68b2424315, type: 3}
+  itemName: Base Wardrobe Item
+  description: Base Wardrobe Item
+  subtitleText: Base Wardrobe Item
+  UseItemStatModifiers: 0
+  BuySellCurrencies: []
+  currencyRequirementPurchaseMode: 0
+  CanBeUsedOnHotbar: 0
+  Stackable: 0
+  maxStacks: 99
+  useDurability: 0
+  maxDurability: 100
+  BuffDebuffDescription: 
+  armourType: 0
+  subArmourType: 0
+  activeMeshObject: {fileID: 0}
+  rarityType: {fileID: 11400000, guid: 9c7674027a5c9f849b48aa02f6acef00, type: 2}
+  inWorldPrefab: {fileID: 8881869595417596589, guid: 4fa23567e8710d64c8cc7d061d73f9bd, type: 3}
+  DefaultSellCurrency: 
+  Equippable: 1
+  Usable: 0
+  Droppable: 1
+  Discardable: 1
+  NotSellable: 0
+  OnThisItemUsed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnItemUsed:
+    m_PersistentCalls:
+      m_Calls: []
+  OnItemEquipped:
+    m_PersistentCalls:
+      m_Calls: []
+  OnItemUnEquipped:
+    m_PersistentCalls:
+      m_Calls: []
+  OnItemDropped:
+    m_PersistentCalls:
+      m_Calls: []
+  OnItemRemoved:
+    m_PersistentCalls:
+      m_Calls: []
+  UseReaction:
+    name: Use
+    reaction:
+      rid: 9139710551069032532
+  EquipReaction:
+    name: Equip
+    reaction:
+      rid: 9139710593230700597
+  UnequipReaction:
+    name: Unequip
+    reaction:
+      rid: 9139710593230700596
+  DropReaction:
+    name: Drop
+    reaction:
+      rid: 9139710551069032535
+  RemoveReaction:
+    name: Remove
+    reaction:
+      rid: 9139710551069032536
+  UseReaction2:
+    reactions:
+    - rid: -2
+  EquipReaction2:
+    reactions:
+    - rid: 9139710593230700597
+  UnequipReaction2:
+    reactions:
+    - rid: 9139710593230700596
+  DropReaction2:
+    reactions:
+    - rid: 636326215451148373
+    - rid: 636326215451148371
+  RemoveReaction2:
+    reactions:
+    - rid: 636326215451148375
+    - rid: 636326215451148376
+  Editor_Tabs1: 0
+  MigrateReaction2: 1
+  textRecipeName: FemaleHair1
+  textRecipe: {fileID: 11400000, guid: 53a236a7ccb00374dbbed2f13dc8509d, type: 2}
+  inventorySlot: {fileID: 0}
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 636326215451148371
+      type: {class: DropItemReaction, ns: MalbersAnimations.InventorySystem, asm: MalbersAnimations.Inventory}
+      data:
+        desc: 
+        Active: 1
+        useLocal: 0
+        localTarget: {fileID: 0}
+        delay: 0
+    - rid: 636326215451148373
+      type: {class: UnequipClothingItemReaction, ns: , asm: Assembly-CSharp}
+      data:
+        desc: 
+        Active: 1
+        useLocal: 0
+        localTarget: {fileID: 0}
+        delay: 0
+    - rid: 636326215451148375
+      type: {class: UnequipClothingItemReaction, ns: , asm: Assembly-CSharp}
+      data:
+        desc: 
+        Active: 1
+        useLocal: 0
+        localTarget: {fileID: 0}
+        delay: 0
+    - rid: 636326215451148376
+      type: {class: RemoveItemReaction, ns: MalbersAnimations.InventorySystem, asm: MalbersAnimations.Inventory}
+      data:
+        desc: 
+        Active: 1
+        useLocal: 0
+        localTarget: {fileID: 0}
+        delay: 0
+    - rid: 9139710551069032532
+      type: {class: UseItemReaction, ns: MalbersAnimations.InventorySystem, asm: MalbersAnimations}
+      data:
+        Active: 1
+        useLocalTarget: 0
+        LocalTarget: {fileID: 0}
+        delay: 0
+    - rid: 9139710551069032535
+      type: {class: DropItemReaction, ns: MalbersAnimations.InventorySystem, asm: MalbersAnimations}
+      data:
+        Active: 1
+        useLocalTarget: 0
+        LocalTarget: {fileID: 0}
+        delay: 0
+    - rid: 9139710551069032536
+      type: {class: RemoveItemReaction, ns: MalbersAnimations.InventorySystem, asm: MalbersAnimations}
+      data:
+        Active: 1
+        useLocalTarget: 0
+        LocalTarget: {fileID: 0}
+        delay: 0
+    - rid: 9139710593230700596
+      type: {class: UnequipClothingItemReaction, ns: , asm: Assembly-CSharp}
+      data:
+        desc: 
+        Active: 1
+        useLocal: 0
+        localTarget: {fileID: 0}
+        delay: 0
+    - rid: 9139710593230700597
+      type: {class: EquipClothingItemReaction, ns: , asm: Assembly-CSharp}
+      data:
+        desc: 
+        Active: 1
+        useLocal: 0
+        localTarget: {fileID: 0}
+        delay: 0

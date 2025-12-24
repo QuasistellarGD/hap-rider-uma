@@ -19,20 +19,28 @@ public class EquipClothingItemReaction : InventoryMasterReaction
         // set the current inventory slot
         wardrobeItem.inventorySlot = invMaster.currentSelectedSlot;
 
-        //Debug.Log("Equipped: <color=yellow>" + invMaster.currentSelectedSlot.item.item.name + "</color>");
+        //Debug.Log("Equipped: <color=yellow>" + wardrobeItem.textRecipe + "</color> "+ wardrobeItem.textRecipeName);
 
         UMARider umaRider = invMaster.character.Value.GetComponent<UMARider>();
         // let umarider handle the equipping
-        umaRider.EquipUMAWardrobeItem(wardrobeItem);
 
-        if (SaveLoadSystem.instance == null || !SaveLoadSystem.instance.isLoadingData)
+        if (umaRider.EquipUMAWardrobeItem(wardrobeItem))
         {
-            invMaster.currentSelectedSlot.draggable.FocusOnItem();
-            //OnItemEquipped.Invoke(null);
-            invMaster.currentSelectedSlot.item.item.OnItemEquipped.Invoke(null); //Item Event
-            invMaster.currentSelectedSlot.inventory.OnItemEquipped.Invoke(null); //Inventory Event
-        }
 
-        return true;
+            if (SaveLoadSystem.instance == null || !SaveLoadSystem.instance.isLoadingData)
+            {
+                invMaster.currentSelectedSlot.draggable.FocusOnItem();
+                //OnItemEquipped.Invoke(null);
+                invMaster.currentSelectedSlot.item.item.OnItemEquipped.Invoke(null); //Item Event
+                invMaster.currentSelectedSlot.inventory.OnItemEquipped.Invoke(null); //Inventory Event
+            }
+
+            return true;
+
+        }
+        else
+        {
+            return false;
+        }
     }
 }

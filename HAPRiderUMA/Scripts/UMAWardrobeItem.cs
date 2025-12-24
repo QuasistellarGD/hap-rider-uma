@@ -22,9 +22,13 @@ public class UMAWardrobeItem : Item
 
     void Start()
     {
-        if (UMAContextBase.Instance.HasRecipe(textRecipeName))
+        if (textRecipeName != null && UMAContextBase.Instance.HasRecipe(textRecipeName))
         {
             textRecipe = UMAContextBase.Instance.GetRecipe(textRecipeName, false);
+        }
+        else
+        {
+            Debug.LogWarning("textRecipeName not found or null");
         }
     }
 }
@@ -33,11 +37,23 @@ public class UMAWardrobeItem : Item
 [CustomEditor(typeof(UMAWardrobeItem)), CanEditMultipleObjects]
 public class UMAWardrobeItemEditor : ScriptableItemEditor
 {
+    UMAWardrobeItem wardrobeItem;
     public override void OnInspectorGUI()
     {
+        wardrobeItem = (UMAWardrobeItem)target;
+
         base.OnInspectorGUI();
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("textRecipeName"), new GUIContent("UMA Text Recipe Name", "The UMA Text Recipe of the Item"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("textRecipe"), new GUIContent("UMA Text Recipe", "The UMA Text Recipe of the Item"));
+
+        if(serializedObject.hasModifiedProperties)
+        {
+            if (UMAContextBase.Instance.HasRecipe(wardrobeItem.textRecipeName))
+            {
+                wardrobeItem.textRecipe = UMAContextBase.Instance.GetRecipe(wardrobeItem.textRecipeName, false);
+            }
+        }
 
         serializedObject.ApplyModifiedProperties();
     }
